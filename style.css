@@ -12,6 +12,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 header nav a {
@@ -20,7 +21,6 @@ header nav a {
     margin: 0 10px;
     font-size: 14px;
     font-weight: bold;
-
 }
 
 header nav a:hover {
@@ -31,7 +31,7 @@ header nav a:hover {
     height: 50px;
 }
 
-/* Section Styling */
+/* Section Styling (Home / Comment / Request tabs) */
 section {
     display: none;
     padding: 50px 20px;
@@ -40,17 +40,10 @@ section {
     background-size: cover;
     background-position: center;
     overflow: hidden;
-
 }
 
 section.active {
     display: block;
-    padding: 50px 20px;
-    position: relative;
-    text-align: left;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
 }
 
 /* Hero Section */
@@ -58,7 +51,7 @@ section.active {
     position: relative;
     text-align: left;
     padding: 50px 20px;
-    background-image: url('asset/15ac274516057a8bd59efd72a62d7a55.jpg'); /* Replace with the actual background image */
+    background-image: url('asset/15ac274516057a8bd59efd72a62d7a55.jpg');
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -71,12 +64,12 @@ section.active {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(20, 20, 20, 0.5); /* Overlay hitam semi-transparan */
-    z-index: 1; /* Pastikan overlay berada di bawah konten */
+    background: rgba(20, 20, 20, 0.5);
+    z-index: 1;
 }
 
 .hero h1, .hero h2, .hero p, .hero button {
-    position: relative; /* Pastikan elemen tetap berada di atas overlay */
+    position: relative;
     z-index: 2;
 }
 
@@ -122,7 +115,7 @@ footer {
     font-size: 14px;
 }
 
-/* Search Bar */
+/* Search Bar (ready for when a search feature is added) */
 .search-bar {
     margin: 20px 0;
     width: 80%;
@@ -154,6 +147,7 @@ textarea, input[type="text"] {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 button {
@@ -169,28 +163,36 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Comment and Request List Styles */
+button:disabled {
+    background-color: #555;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+/* Comment and Request List Styles
+   NOTE: matches the classes script.js actually creates
+   (comment-item / comment-text / request-item / request-text) */
 #commentsList, #requestList {
     margin-top: 20px;
 }
 
-.comment, .request {
+.comment-item, .request-item {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-.comment h4, .request h4 {
-    margin: 0;
+.comment-text, .request-text {
     color: #333;
+    flex: 1;
 }
 
-.comment p, .request p {
-    margin: 5px 0 0 0;
-    color: #555;
-}
 .edit-btn, .delete-btn {
     background-color: #ffc107;
     color: #000;
@@ -199,6 +201,7 @@ button:hover {
     margin: 0 5px;
     border-radius: 5px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .edit-btn:hover {
@@ -214,84 +217,6 @@ button:hover {
     background-color: #c82333;
 }
 
-/* Game Section */
-.game-container {
-    display: flex;
-    gap: 20px;
-}
-
-.game-card {
-    position: relative;
-    width: 200px;
-    height: 300px;
-    overflow: hidden;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.game-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.game-card:hover img {
-    transform: scale(1.1);
-}
-.game-card {
-    position: relative;
-    width: 200px;
-    height: 300px;
-    overflow: hidden;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.game-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.game-card:hover img {
-    transform: scale(1.1);
-}
-
-
-.game-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.game-card:hover .game-info {
-    opacity: 1;
-}
-
-.game-info h3 {
-    margin: 0;
-    font-size: 1.2rem;
-}
-
-.game-info p {
-    margin: 5px 0 0;
-    font-size: 0.9rem;
-    font-weight: bold;
-}
-
 /* Games for a specific category */
 .category-games {
     margin-top: 2em;
@@ -301,45 +226,26 @@ button:hover {
     margin-bottom: 1em;
 }
 
-/* Gallery Section */
+/* Gallery / section wrapper */
 .section {
     width: 90%;
     max-width: 1200px;
+    margin: 0 auto;
 }
 
 .section h2 {
     margin-bottom: 20px;
 }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-}
-
-.card {
-    background-color: #5d5b5b;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.card img {
-    width: 100%;
-    height: auto;
-}
-
-.card p {
-    padding: 10px;
-    text-align: center;
-}
-
 /* Game Section */
 .game-container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 40px;
 }
 
 .game-card {
@@ -361,32 +267,7 @@ button:hover {
 .game-card:hover img {
     transform: scale(1.1);
 }
-.game-card {
-    position: relative;
-    width: 200px;
-    height: 300px;
-    overflow: hidden;
-    border-radius: 10px;
-    cursor: pointer;
-}
 
-.game-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.game-card:hover img {
-    transform: scale(1.1);
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
 .game-info {
     position: absolute;
     top: 0;
@@ -419,7 +300,6 @@ button:hover {
     font-weight: bold;
 }
 
-/* style.css */
 .link-button {
     background-color: #007BFF;
     color: white;
@@ -439,4 +319,25 @@ button:hover {
 .link-button:focus {
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .game-container {
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+    }
 }
