@@ -1,0 +1,183 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #e63946;
+    color: #333;
+    padding: 10px 20px;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    flex-direction: column;
+    background-color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+p, ul {
+    margin-bottom: 15px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.game-details {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-details p {
+    margin: 5px 0;
+}
+
+.highlight {
+    color: #28a745;
+    font-weight: bold;
+
+}
+
+.browse-button {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.browse-button a {
+    text-decoration: none;
+}
+
+.browse-button button {
+    padding: 30px 50px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    box-shadow: (0 4px 8px #e63946);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.browse-button button:hover {
+    background-color: #e63946;
+    color: #ffffff;
+}
+
+.tips {
+    margin-top: 20px;
+}
+
+.tips ul {
+    list-style-type: square;
+}
+
+.faq {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.faq a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.faq a:hover {
+    text-decoration: underline;
+}
+
+.requirements {
+    margin-top: 30px;
+}
+
+.requirements ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.requirements ul li {
+    margin-bottom: 10px;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.game-container img {
+    width:  800px;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+.game-info h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.game-info p {
+    text-align: justify;
+    margin: 0 auto;
+    line-height: 1.6; /* Improve readability */
+}
+
+.skrensut img {
+    width:  800px;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+.Gameplay video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Centers vertically */
+    width: 800px;
+    height: 400px;
+}
+
+footer {
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+}

@@ -188,3 +188,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+function gantiHalaman(halaman) {
+    const content = document.getElementById('content');
+    if (halaman === 'halaman2') {
+        content.innerHTML = `
+            <h1>Halaman 2</h1>
+            <button onclick="gantiHalaman('halaman1')">Kembali ke Halaman 1</button>
+        `;
+    } else {
+        content.innerHTML = `
+            <h1>Halaman 1</h1>
+            <button onclick="gantiHalaman('halaman2')">Ke Halaman 2</button>
+        `;
+    }
+}
